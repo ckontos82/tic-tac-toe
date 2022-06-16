@@ -52,6 +52,7 @@ int main(void)
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
 
         putChoice(player, board, choice);
+        system("clear");    //If you are using Windows, change "clear" to "cls".
         display(board);
         status(board, player);
         ++player;
