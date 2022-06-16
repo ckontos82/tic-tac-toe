@@ -34,7 +34,7 @@ int main(void)
         for (int j = 0; j < DIM; j++)
             board[i][j] = 3 * i + j + 1 + '0';
 
-    system("clear");
+    system("clear");        //If you are using Windows, change "clear" to "cls".
     display(board);
 
     printf("\n\nPlayer 1 has (X), player 2 has (O).\n\n");
