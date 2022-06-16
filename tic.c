@@ -16,7 +16,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 #define DIM 3
 #define RND 9
 
-void putChoice(int, char [][3], int);
+void putChoice(int, char [][DIM], int);
 void display(char [DIM][DIM]);
 void status(char [DIM][DIM], int);
 int isValid(char [DIM][DIM], int);
