@@ -45,7 +45,7 @@ int main(void)
         else
             player = 1;
         
-        do{
+        do {
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
             fgets(stream, 9, stdin);
             choice = strtol(stream, &endptr, 10);
