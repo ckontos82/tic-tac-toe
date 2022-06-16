@@ -124,7 +124,7 @@ void status(char array[DIM][DIM], int p)
 
 int isValid(char array[DIM][DIM], int c)
 {
-    int i = (c- 1) / DIM;
+    int i = (c - 1) / DIM;
     int j = (c - 1) % DIM;
 
     if ((array[i][j] == 'X') || (array[i][j] == 'O'))
