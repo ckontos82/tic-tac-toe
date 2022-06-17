@@ -27,7 +27,7 @@ int main(void)
     int player = 1;
     int choice;
     int  round = 0;
-    char *stream = (char *) malloc(100 * sizeof(char)), *endptr;
+    char *stream = (char *) malloc(1000 * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
@@ -46,7 +46,7 @@ int main(void)
         
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
-            fgets(stream, 100, stdin);
+            fgets(stream, 1000, stdin);
             choice = strtol(stream, &endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
 
