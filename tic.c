@@ -14,11 +14,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #define DIM 3
 #define RND 9
+#define SIZE 10
 
 void putChoice(int, char [][3], int);
 void display(char [DIM][DIM]);
 void status(char [DIM][DIM], int, char *);
 int isValid(char [DIM][DIM], int);
+int consume;
 
 
 int main(void)
@@ -26,8 +28,9 @@ int main(void)
     char board[DIM][DIM];
     int player = 1;
     int choice;
-    int  round = 0;
-    char *stream = (char *) malloc(1000 * sizeof(char)), *endptr;
+    int round = 0;
+    int test = 0;
+    char * stream = (char *) malloc(SIZE * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
@@ -46,7 +49,14 @@ int main(void)
         
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
-            fgets(stream, 1000, stdin);
+            fgets(stream, SIZE, stdin);
+            for (int i = 0; i < SIZE; i++)
+            {
+                if (stream[i] == '\n')
+                    test = 1;
+            }
+            if (!test)
+                while (getchar() != '\n');
             choice = strtol(stream, &endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
 
@@ -93,7 +103,7 @@ void putChoice(int p, char array[][DIM], int choice)
     }
 }
 
-void status(char array[DIM][DIM], int p, char *str)
+void status(char array[DIM][DIM], int p, char * str)
 {
     int i;
     for (i = 0; i < DIM; i++)
