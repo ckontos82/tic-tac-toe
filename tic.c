@@ -20,7 +20,6 @@ void putChoice(int, char [][3], int);
 void display(char [DIM][DIM]);
 void status(char [DIM][DIM], int, char *);
 int isValid(char [DIM][DIM], int);
-int consume;
 
 
 int main(void)
