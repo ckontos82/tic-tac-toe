@@ -29,7 +29,7 @@ int main(void)
     int player = 1;
     int choice;
     int round = 0;
-    int test = 0;
+    int emptyBuffer;
     char *stream = (char *) malloc(SIZE * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
@@ -53,9 +53,9 @@ int main(void)
             for (int i = 0; i < SIZE; i++)
             {
                 if (stream[i] == '\n')
-                    test = 1;
+                    emptyBuffer = 1;
             }
-            if (!test)
+            if (!emptyBuffer)
                 while (getchar() != '\n');
             choice = strtol(stream, &endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
