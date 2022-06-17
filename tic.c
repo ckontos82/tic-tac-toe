@@ -46,7 +46,7 @@ int main(void)
         
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
-            fgets(stream, 9, stdin);
+            fgets(stream, 100, stdin);
             choice = strtol(stream, &endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
 
