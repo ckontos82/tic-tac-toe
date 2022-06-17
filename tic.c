@@ -115,7 +115,6 @@ void status(char array[DIM][DIM], int p)
             printf("\n\nPlayer %d has won the game.\n", p);
             exit(0);
     }
-
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
             printf("\n\nPlayer %d has won the game.\n", p);
