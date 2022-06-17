@@ -100,25 +100,25 @@ void status(char array[DIM][DIM], int p)
     {
         if ((array[i][0] == array[i][1]) && (array[i][1] == array[i][2]))
         {
-            printf("\n\nPlayer %d has won the game.\n");
+            printf("\n\nPlayer %d has won the game.\n", p);
             exit(0);
         }    
         if ((array[0][i] == array[1][i]) && (array[1][i] == array[2][i]))
         {
-            printf("\n\nPlayer %d has won the game.\n");
+            printf("\n\nPlayer %d has won the game.\n", p);
             exit(0);
         }
     }
 
     if ((array[0][0] == array[1][1]) && (array[1][1] == array[2][2]))
     {
-            printf("\n\nPlayer %d has won the game.\n");
+            printf("\n\nPlayer %d has won the game.\n", p);
             exit(0);
     }
 
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
-            printf("\n\nPlayer %d has won the game.\n");
+            printf("\n\nPlayer %d has won the game.\n", p);
             exit(0);
     }
 }
