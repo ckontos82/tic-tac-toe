@@ -16,10 +16,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 #define RND 9
 #define SIZE 10
 
-void putChoice(int, char [][3], int);
-void display(char [DIM][DIM]);
-void status(char [DIM][DIM], int, char *);
-int isValid(char [DIM][DIM], int);
+void PutChoice(int, char [][3], int);
+void Display(char [DIM][DIM]);
+void Status(char [DIM][DIM], int, char *);
+int IsValid(char [DIM][DIM], int);
 
 
 int main(void)
@@ -28,15 +28,15 @@ int main(void)
     int player = 1;
     int choice;
     int round = 0;
-    int emptyBuffer;
-    char *stream = (char *) malloc(SIZE * sizeof(char)), *endptr;
+    int empty_buffer;
+    char *p_stream = (char *) malloc(SIZE * sizeof(char)), *p_endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
             board[i][j] = 3 * i + j + 1 + '0';
 
     system("clear");        //If you are using Windows, change "clear" to "cls".
-    display(board);
+    Display(board);
 
     printf("\n\nPlayer 1 has (X), player 2 has (O).\n\n");
     do {       
@@ -48,30 +48,30 @@ int main(void)
         
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
-            fgets(stream, SIZE, stdin);
+            fgets(p_stream, SIZE, stdin);
             for (int i = 0; i < SIZE; i++)
             {
-                if (stream[i] == '\n')
-                    emptyBuffer = 1;
+                if (p_stream[i] == '\n')
+                    empty_buffer = 1;
             }
-            if (!emptyBuffer)
+            if (!empty_buffer)
                 while (getchar() != '\n');
-            choice = strtol(stream, &endptr, 10);
-        } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
+            choice = strtol(p_stream, &p_endptr, 10);
+        } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
 
-        putChoice(player, board, choice);
+        PutChoice(player, board, choice);
         system("clear");    //If you are using Windows, change "clear" to "cls".
-        display(board);
-        status(board, player, stream);
+        Display(board);
+        Status(board, player, p_stream);
         ++player;
     } while (round < RND);
 
     printf("\n\nGame is a tie.\n\n");
-    free(stream);
+    free(p_stream);
     return 0;
 }
 
-void display(char array[DIM][DIM])
+void Display(char array[DIM][DIM])
 {
     for (int i = 0; i < DIM; i++)
     {
@@ -86,7 +86,7 @@ void display(char array[DIM][DIM])
     }
 }
 
-void putChoice(int p, char array[][DIM], int choice)
+void PutChoice(int p, char array[][DIM], int choice)
 {
     int i = (choice - 1) / DIM;
     int j = (choice - 1) % DIM;
@@ -102,7 +102,7 @@ void putChoice(int p, char array[][DIM], int choice)
     }
 }
 
-void status(char array[DIM][DIM], int p, char *str)
+void Status(char array[DIM][DIM], int p, char *p_str)
 {
     int i;
     for (i = 0; i < DIM; i++)
@@ -110,15 +110,15 @@ void status(char array[DIM][DIM], int p, char *str)
         if ((array[i][0] == array[i][1]) && (array[i][1] == array[i][2]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(str);
-            str = NULL;
+            free(p_str);
+            p_str = NULL;
             exit(0);
         }    
         if ((array[0][i] == array[1][i]) && (array[1][i] == array[2][i]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(str);
-            str = NULL;
+            free(p_str);
+            p_str = NULL;
             exit(0);
         }
     }
@@ -126,21 +126,21 @@ void status(char array[DIM][DIM], int p, char *str)
     if ((array[0][0] == array[1][1]) && (array[1][1] == array[2][2]))
     {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(str);
-            str = NULL;
+            free(p_str);
+            p_str = NULL;
             exit(0);
     }
 
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
             printf("\n\nPlayer %d has won the game.\n"), p;
-            free(str);
-            str = NULL;
+            free(p_str);
+            p_str = NULL;
             exit(0);
     }
 }
 
-int isValid(char array[DIM][DIM], int c)
+int IsValid(char array[DIM][DIM], int c)
 {
     int i = (c - 1) / DIM;
     int j = (c - 1) % DIM;
