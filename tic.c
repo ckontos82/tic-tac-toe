@@ -27,7 +27,7 @@ int main(void)
     int player = 1;
     int choice;
     int  round = 0;
-    char * stream = (char *) malloc(100 * sizeof(char)), *endptr;
+    char *stream = (char *) malloc(100 * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
@@ -93,7 +93,7 @@ void putChoice(int p, char array[][DIM], int choice)
     }
 }
 
-void status(char array[DIM][DIM], int p, char * str)
+void status(char array[DIM][DIM], int p, char *str)
 {
     int i;
     for (i = 0; i < DIM; i++)
