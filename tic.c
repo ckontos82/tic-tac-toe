@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 void putChoice(int, char [][3], int);
 void display(char [DIM][DIM]);
-int status(char [DIM][DIM], int);
+void status(char [DIM][DIM], int, char *);
 int isValid(char [DIM][DIM], int);
 
 
@@ -27,7 +27,7 @@ int main(void)
     int player = 1;
     int choice;
     int  round = 0;
-    char *stream = (char *) malloc (100 * sizeof(char)), *endptr;
+    char *stream = (char *) malloc(100 * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
@@ -46,20 +46,18 @@ int main(void)
         
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
-            fgets(stream, 100, stdin);
+            fgets(stream, 9, stdin);
             choice = strtol(stream, &endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!isValid(board, choice)));
 
         putChoice(player, board, choice);
         system("clear");
         display(board);
+        status(board, player, stream);
         ++player;
-    } while ((round < RND) && (status(board, player)));
+    } while (round < RND);
 
-    if (!status)
-        printf("\n\nGame is a tie.\n\n");
-    
-    free(stream);
+    printf("\n\nGame is a tie.\n\n");
     return 0;
 }
 
@@ -94,7 +92,7 @@ void putChoice(int p, char array[][DIM], int choice)
     }
 }
 
-int status(char array[DIM][DIM], int p)
+void status(char array[DIM][DIM], int p, char *myInput)
 {
     int i;
     for (i = 0; i < DIM; i++)
@@ -102,28 +100,34 @@ int status(char array[DIM][DIM], int p)
         if ((array[i][0] == array[i][1]) && (array[i][1] == array[i][2]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            return 0;
+            free(myInput);
+            myInput = NULL;
+            exit(0);
         }    
         if ((array[0][i] == array[1][i]) && (array[1][i] == array[2][i]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            return 0;
+            free(myInput);
+            myInput = NULL;
+            exit(0);
         }
     }
 
     if ((array[0][0] == array[1][1]) && (array[1][1] == array[2][2]))
     {
             printf("\n\nPlayer %d has won the game.\n", p);
-            return 0;
+            free(myInput);
+            myInput = NULL;
+            exit(0);
     }
 
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
             printf("\n\nPlayer %d has won the game.\n"), p;
-            return 0;
+            free(myInput);
+            myInput = NULL;
+            exit(0);
     }
-
-    return 1;
 }
 
 int isValid(char array[DIM][DIM], int c)
