@@ -58,6 +58,7 @@ int main(void)
     } while (round < RND);
 
     printf("\n\nGame is a tie.\n\n");
+    free(stream);
     return 0;
 }
 
