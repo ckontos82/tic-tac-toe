@@ -27,7 +27,7 @@ int main(void)
     int player = 1;
     int choice;
     int  round = 0;
-    char *stream = (char *) malloc(100 * sizeof(char)), *endptr;
+    char * stream = (char *) malloc(100 * sizeof(char)), *endptr;
     
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
@@ -93,7 +93,7 @@ void putChoice(int p, char array[][DIM], int choice)
     }
 }
 
-void status(char array[DIM][DIM], int p, char *myInput)
+void status(char array[DIM][DIM], int p, char * str)
 {
     int i;
     for (i = 0; i < DIM; i++)
@@ -101,15 +101,15 @@ void status(char array[DIM][DIM], int p, char *myInput)
         if ((array[i][0] == array[i][1]) && (array[i][1] == array[i][2]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(myInput);
-            myInput = NULL;
+            free(str);
+            str = NULL;
             exit(0);
         }    
         if ((array[0][i] == array[1][i]) && (array[1][i] == array[2][i]))
         {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(myInput);
-            myInput = NULL;
+            free(str);
+            str = NULL;
             exit(0);
         }
     }
@@ -117,16 +117,16 @@ void status(char array[DIM][DIM], int p, char *myInput)
     if ((array[0][0] == array[1][1]) && (array[1][1] == array[2][2]))
     {
             printf("\n\nPlayer %d has won the game.\n", p);
-            free(myInput);
-            myInput = NULL;
+            free(str);
+            str = NULL;
             exit(0);
     }
 
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
             printf("\n\nPlayer %d has won the game.\n"), p;
-            free(myInput);
-            myInput = NULL;
+            free(str);
+            str = NULL;
             exit(0);
     }
 }
