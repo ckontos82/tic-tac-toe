@@ -20,6 +20,7 @@ void PutChoice(int, char [][3], int);
 void Display(char [DIM][DIM]);
 void Status(char [DIM][DIM], int, char *);
 int IsValid(char [DIM][DIM], int);
+void ClearBuffer(char *);
 
 
 int main(void)
@@ -49,15 +50,7 @@ int main(void)
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
             fgets(p_stream, SIZE, stdin);
-            for (int i = 0; i < SIZE; i++)
-            {
-                if (p_stream[i] == '\n')
-                    empty_buffer = 0;
-                else
-                    empty_buffer = 1;
-            }
-            if (empty_buffer)
-                while (getchar() != '\n');
+            ClearBuffer(p_stream);
             choice = strtol(p_stream, &p_endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
 
@@ -151,4 +144,18 @@ int IsValid(char array[DIM][DIM], int c)
         return 0;
 
     return 1;
+}
+
+void ClearBuffer(char *input)
+{
+    int empty_buffer;
+    for (int i = 0; input[i] != '\0'; i++)
+            {
+                if (input[i] == '\n')
+                    empty_buffer = 1;
+                else
+                    empty_buffer = 0;
+            }
+            if (!empty_buffer)
+                while (getchar() != '\n');
 }
