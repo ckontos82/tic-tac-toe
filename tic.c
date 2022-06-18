@@ -52,11 +52,11 @@ int main(void)
             for (int i = 0; i < SIZE; i++)
             {
                 if (p_stream[i] == '\n')
-                    empty_buffer = 1;
-                else
                     empty_buffer = 0;
+                else
+                    empty_buffer = 1;
             }
-            if (!empty_buffer)
+            if (empty_buffer)
                 while (getchar() != '\n');
             choice = strtol(p_stream, &p_endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
