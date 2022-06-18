@@ -63,6 +63,7 @@ int main(void)
 
     printf("\n\nGame is a tie.\n\n");
     free(p_stream);
+    p_stream = NULL;
     return 0;
 }
 
