@@ -149,13 +149,14 @@ int IsValid(char array[DIM][DIM], int c)
 void ClearBuffer(char *input)
 {
     int empty_buffer;
+    
     for (int i = 0; input[i] != '\0'; i++)
-            {
-                if (input[i] == '\n')
-                    empty_buffer = 1;
-                else
-                    empty_buffer = 0;
-            }
-            if (!empty_buffer)
-                while (getchar() != '\n');
+    {
+        if (input[i] == '\n')
+            empty_buffer = 1;
+        else
+            empty_buffer = 0;
+    }
+    if (!empty_buffer)
+        while (getchar() != '\n');
 }
