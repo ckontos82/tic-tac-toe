@@ -53,6 +53,8 @@ int main(void)
             {
                 if (p_stream[i] == '\n')
                     empty_buffer = 1;
+                else
+                    empty_buffer = 0;
             }
             if (!empty_buffer)
                 while (getchar() != '\n');
