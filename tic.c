@@ -50,7 +50,11 @@ int main(void)
         do{
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
             fgets(p_stream, SIZE, stdin);
-            ClearBuffer(p_stream);
+            
+                                        // If you are using MS Visual Studio with MS C Compiler you may be able to substitute
+            ClearBuffer(p_stream);      // "ClearBuffer()" with "fflush(stdin);" and delete the function, but this
+                                        // is not POSIX-compliant and could lead to undefined behaviour.         
+            
             choice = strtol(p_stream, &p_endptr, 10);
         } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
 
