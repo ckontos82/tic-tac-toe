@@ -155,9 +155,9 @@ void ClearBuffer(char *input)
 {
     int empty_buffer;
     
-    for (int i = 0; input[i] != '\0'; i++)
+    for (; *input != '\0'; ++input) 
     {
-        if (input[i] == '\n')
+        if (*input == '\n')
             empty_buffer = 1;
         else
             empty_buffer = 0;
