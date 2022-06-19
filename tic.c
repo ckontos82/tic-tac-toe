@@ -51,7 +51,7 @@ int main(void)
             printf("\n\nPlayer %d is playing. Enter your choice: ", player);
             fgets(p_stream, SIZE, stdin);
             
-                                        // If you are using MS Visual Studio with MS C Compiler you may be able to change
+                                        // If you are using MS Visual Studio and/or MS C Compiler you may be able to change
             ClearBuffer(p_stream);      // "ClearBuffer(p_stream);" to "fflush(stdin);" and delete the function declaration 
                                         // and its prototype, but this is not POSIX-compliant and could lead to undefined behaviour.         
             
