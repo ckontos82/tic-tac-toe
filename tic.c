@@ -36,7 +36,7 @@ int main(void)
         for (int j = 0; j < DIM; j++)
             board[i][j] = 3 * i + j + 1 + '0';
 
-    system("clear");        //If you are using Windows, change "clear" to "cls".
+    system("clear");                    // If you are using Windows, change "clear" to "cls".
     Display(board);
 
     printf("\n\nPlayer 1 has (X), player 2 has (O).\n\n");
@@ -59,7 +59,7 @@ int main(void)
         } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
 
         PutChoice(player, board, choice);
-        system("clear");    //If you are using Windows, change "clear" to "cls".
+        system("clear");                // If you are using Windows, change "clear" to "cls".
         Display(board);
         Status(board, player, p_stream);
         ++player;
