@@ -23,7 +23,7 @@ int IsValid(char [DIM][DIM], int);
 void ClearBuffer(char *);
 
 
-int main(void)
+int main()
 {
     char board[DIM][DIM];
     int player = 1;
