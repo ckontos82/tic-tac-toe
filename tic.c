@@ -32,6 +32,15 @@ int main()
     int empty_buffer;
     char *p_stream = (char *) malloc(SIZE * sizeof(char)), *p_endptr;
     
+    //If malloc fails, exit program
+        if(!p_stream)
+    {
+        printf("Program has encountered a problem");
+        exit(0);
+    }
+    
+    
+    //Board initialization
     for (int i = 0; i < DIM; i++)
         for (int j = 0; j < DIM; j++)
             board[i][j] = 3 * i + j + 1 + '0';
