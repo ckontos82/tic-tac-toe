@@ -23,7 +23,7 @@ int IsValid(char [DIM][DIM], int);
 void ClearBuffer(char *);
 
 
-int main()
+int main(int argc, char** argv)
 {
     char board[DIM][DIM];
     int player = 1;
@@ -32,8 +32,28 @@ int main()
     int empty_buffer;
     char *p_stream = (char *) malloc(SIZE * sizeof(char)), *p_endptr;
     
+    int c;
+
+    while ((c = getopt(argc, argv, "h")) != -1)
+    {
+        switch (c)
+        {
+            case 'h':
+            {
+                printf("This is a simple tic tac toe game for two players.\n");
+                printf("Just type the number of the square you want to place X or O and press \"Enter\".\n");
+                printf("For now it is only available for two players, there is not version against computer.\n");
+                printf("Run the program without any options to launch the game.");
+                exit(0);
+            }
+            break;
+            default:
+                exit(0); 
+        }       
+    }
+    
     //If malloc fails, exit program
-        if(!p_stream)
+    if(!p_stream)
     {
         printf("Program has encountered a problem");
         exit(0);
