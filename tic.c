@@ -11,6 +11,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define DIM 3
 #define RND 9
