@@ -163,7 +163,7 @@ void Status(char array[DIM][DIM], int p, char *p_str)
 
     if ((array[0][2] == array[1][1]) && (array[1][1] == array[2][0]))
     {
-            printf("\n\nPlayer %d has won the game.\n"), p;
+            printf("\n\nPlayer %d has won the game.\n", p);
             free(p_str);
             p_str = NULL;
             exit(0);
