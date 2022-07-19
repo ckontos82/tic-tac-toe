@@ -44,7 +44,7 @@ int main(int argc, char** argv)
                 printf("This is a simple tic tac toe game for two players.\n");
                 printf("Just type the number of the square you want to place X or O and press \"Enter\".\n");
                 printf("For now it is only available for two players, there is not version against computer.\n");
-                printf("Run the program without any options to launch the game.");
+                printf("Run the program without any options to launch the game.\n");
                 exit(0);
             }
             break;
