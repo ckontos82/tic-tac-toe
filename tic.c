@@ -16,6 +16,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 #define DIM 3
 #define RND 9
 #define SIZE 10
+#define _CLRSCR printf("\e[1;1H\e[2J")
 
 void PutChoice(int, char [][DIM], int);
 void Display(char [DIM][DIM]);
@@ -66,7 +67,7 @@ int main(int argc, char** argv)
         for (int j = 0; j < DIM; j++)
             board[i][j] = 3 * i + j + 1 + '0';
 
-    system("clear");                    // If you are using Windows, change "clear" to "cls".
+    _CLRSCR;
     Display(board);
 
     printf("\n\nPlayer 1 has (X), player 2 has (O).\n\n");
@@ -89,7 +90,7 @@ int main(int argc, char** argv)
         } while ((choice < 1) || (choice > 9) || (!IsValid(board, choice)));
 
         PutChoice(player, board, choice);
-        system("clear");                // If you are using Windows, change "clear" to "cls".
+        _CLRSCR; 
         Display(board);
         Status(board, player, p_stream);
         ++player;
